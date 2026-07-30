@@ -93,13 +93,28 @@ function iniciarEdicao(id) {
     botaoSubmit.textContent = "Salvar alterações";
 }
 
-function removerChamado(id) {
-    const confirmar = confirm("Tem certeza que deseja excluir este chamado?");
-    if (!confirmar) return;
+const modalOverlay = document.getElementById("modalOverlay");
+const modalConfirmar = document.getElementById("modalConfirmar");
+const modalCancelar = document.getElementById("modalCancelar");
 
-    excluirChamado(id);
-    mostrarChamados();
+let idParaExcluir = null;
+
+function removerChamado(id) {
+    idParaExcluir = id;
+    modalOverlay.classList.add("ativo");
 }
+
+modalConfirmar.addEventListener("click", function() {
+    excluirChamado(idParaExcluir);
+    modalOverlay.classList.remove("ativo");
+    idParaExcluir = null;
+    mostrarChamados();
+});
+
+modalCancelar.addEventListener("click", function() {
+    modalOverlay.classList.remove("ativo");
+    idParaExcluir = null;
+});
 
 function escapeHTML(texto) {
     const div = document.createElement("div");
