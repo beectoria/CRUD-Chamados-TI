@@ -2,6 +2,8 @@
 
 Sistema simples de abertura e gerenciamento de chamados de suporte técnico, desenvolvido como projeto de estudo em HTML, CSS e JavaScript puro (Vanilla JS), com persistência de dados via `localStorage`.
 
+🔗 **Acesse o projeto no ar:** [crud-chamados-ti.vercel.app](https://crud-chamados-ti.vercel.app/)
+
 ## Funcionalidades
 
 - Criar novo chamado (título, descrição e prioridade)
@@ -31,6 +33,12 @@ CRUD-Chamados-TI/
 │   └── app.js        → lógica de interface (formulário, renderização, eventos)
 └── README.md
 ```
+
+## Deploy
+
+O projeto está hospedado na **Vercel**, com deploy contínuo: qualquer alteração enviada para a branch `main` no GitHub é automaticamente publicada.
+
+🔗 https://crud-chamados-ti.vercel.app/
 
 ## Como executar o projeto
 
