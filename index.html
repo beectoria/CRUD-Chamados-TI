@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Chamados TI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Sistema de Chamados TI</h1>
+    </header>
+
+
+    <main>
+
+        <section>
+            <h2>Novo Chamado</h2>
+
+            <form id="formChamado">
+
+                <label>
+                    Título:
+                </label>
+
+                <input 
+                    type="text" 
+                    id="titulo"
+                    placeholder="Ex: Computador não liga"
+                >
+
+
+                <label>
+                    Descrição:
+                </label>
+
+                <textarea 
+                    id="descricao"
+                    placeholder="Descreva o problema">
+                </textarea>
+
+
+                <label>
+                    Prioridade:
+                </label>
+
+                <select id="prioridade">
+
+                    <option value="Baixa">
+                        Baixa
+                    </option>
+
+                    <option value="Média">
+                        Média
+                    </option>
+
+                    <option value="Alta">
+                        Alta
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Criar chamado
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section>
+
+            <h2>Chamados cadastrados</h2>
+
+            <div id="listaChamados">
+
+                <!-- Os chamados vão aparecer aqui pelo JavaScript -->
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/storage.js"></script>
+    <script src="js/crud.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
