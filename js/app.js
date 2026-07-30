@@ -68,13 +68,13 @@ function mostrarChamados() {
         lista.appendChild(card);
     });
 
-    document.querySelectorAll(".btn-editar").forEach(function(botao) {
+    lista.querySelectorAll(".btn-editar").forEach(function(botao) {
         botao.addEventListener("click", function() {
             iniciarEdicao(Number(botao.dataset.id));
         });
     });
 
-    document.querySelectorAll(".btn-excluir").forEach(function(botao) {
+    lista.querySelectorAll(".btn-excluir").forEach(function(botao) {
         botao.addEventListener("click", function() {
             removerChamado(Number(botao.dataset.id));
         });
