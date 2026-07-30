@@ -4,6 +4,14 @@ const formulario = document.getElementById("formChamado");
 const lista = document.getElementById("listaChamados");
 const botaoSubmit = formulario.querySelector('button[type="submit"]');
 
+const btnAnterior = document.getElementById("btnAnterior");
+const btnProximo = document.getElementById("btnProximo");
+const paginaAtualTexto = document.getElementById("paginaAtual");
+
+let paginaAtual = 1;
+
+const itensPorPagina = 4;
+
 let idEmEdicao = null;
 
 formulario.addEventListener("submit", function(event) {
@@ -42,12 +50,20 @@ function mostrarChamados() {
 
     const chamados = listarChamados();
 
+    const totalPaginas = Math.ceil(chamados.length / itensPorPagina);
+
+    const inicio = (paginaAtual - 1) * itensPorPagina;
+
+    const fim = inicio + itensPorPagina;
+
+    const chamadosPagina = chamados.slice(inicio, fim);
+
     if (chamados.length === 0) {
         lista.innerHTML = '<p class="vazio">Nenhum chamado cadastrado.</p>';
         return;
     }
 
-    chamados.forEach(function(chamado) {
+    chamadosPagina.forEach(function(chamado) {
 
         const card = document.createElement("div");
         card.className = `chamado prioridade-${chamado.prioridade.toLowerCase()}`;
@@ -79,7 +95,33 @@ function mostrarChamados() {
             removerChamado(Number(botao.dataset.id));
         });
     });
+
+    paginaAtualTexto.textContent = `Página ${paginaAtual} de ${totalPaginas}`;
+
+    btnAnterior.disabled = paginaAtual === 1;
+    btnProximo.disabled = paginaAtual === totalPaginas || totalPaginas === 0;
+    
 }
+
+btnAnterior.addEventListener("click", function() {
+
+    if (paginaAtual > 1) {
+        paginaAtual--;
+        mostrarChamados();
+    }
+
+});
+
+btnProximo.addEventListener("click", function() {
+
+    const totalPaginas = Math.ceil(listarChamados().length / itensPorPagina);
+
+    if (paginaAtual < totalPaginas) {
+        paginaAtual++;
+        mostrarChamados();
+    }
+
+});
 
 function iniciarEdicao(id) {
     const chamado = listarChamados().find(c => c.id === id);

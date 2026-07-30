@@ -219,3 +219,15 @@ button:hover {
 .btn-confirmar-exclusao:hover {
     background: #c0392b;
 }
+
+.paginacao{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:16px;
+    margin-top:24px;
+}
+
+.paginacao button{
+    min-width:110px;
+}
